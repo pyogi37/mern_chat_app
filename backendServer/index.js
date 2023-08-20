@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: __dirname + "/.env" });
+
 const connectDB = require("./config/db");
 const port = process.env.PORT;
 const colors = require("colors");
@@ -29,7 +30,7 @@ app.use("/", require("./routes"));
 
 const __dirname1 = path.resolve();
 if (process.env.NODE_ENV == "production") {
-  app.use(express.static(path.join(__dirname1, "../frontend/build")));
+  app.use(express.static(path.join(__dirname1, "frontend/build")));
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
