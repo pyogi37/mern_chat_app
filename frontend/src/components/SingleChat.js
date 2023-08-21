@@ -16,7 +16,7 @@ import EmojiPicker from "emoji-picker-react";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = "https://my-chat-320u.onrender.com/";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
