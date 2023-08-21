@@ -27,7 +27,7 @@ const Homeage = () => {
         align="center"
       >
         <Text fontSize="4xl" fontFamily="Work sans" color="black">
-          my-chat
+         Echo ➲
         </Text>
       </Box>
 
