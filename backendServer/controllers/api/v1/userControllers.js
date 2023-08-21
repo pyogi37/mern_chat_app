@@ -25,11 +25,7 @@ module.exports.registerUser = asyncHandler(async (req, res) => {
 
   if (user) {
     res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      pic: user.pic,
-      token: generateToken(user._id),
+      message: "Sign up successfull!",
     });
   } else {
     res.status(400);
