@@ -11,6 +11,7 @@ import ProfileModal from "./miscellaneous/ProfileModal";
 import ScrollableChat from "./ScrollableChat";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
+import EmojiPicker from "emoji-picker-react";
 
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
@@ -25,6 +26,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [socketConnected, setSocketConnected] = useState(false);
+  const [showEmojis, setShowEmojis] = useState(false);
   const toast = useToast();
 
   const defaultOptions = {
@@ -157,6 +159,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     }, timerLength);
   };
 
+  const addEmoji = (e) => {
+    setNewMessage(newMessage + e.emoji);
+    console.log(newMessage);
+  };
+
   return (
     <>
       {selectedChat ? (
@@ -234,12 +241,25 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ) : (
                 <></>
               )}
+              {showEmojis ? <EmojiPicker onEmojiClick={addEmoji} /> : <> </>}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
                 placeholder="Enter a message.."
                 value={newMessage}
                 onChange={typingHandler}
+              />
+              <i
+                class="fa-regular fa-face-smile"
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  marginTop: "8px",
+                }}
+                onClick={() => {
+                  setShowEmojis(!showEmojis);
+                  console.log(showEmojis);
+                }}
               />
             </FormControl>
           </Box>
