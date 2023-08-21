@@ -255,11 +255,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   position: "absolute",
                   right: "10px",
                   marginTop: "8px",
+                  cursor: "pointer"
                 }}
                 onClick={() => {
                   setShowEmojis(!showEmojis);
                   console.log(showEmojis);
                 }}
+                  
               />
             </FormControl>
           </Box>
